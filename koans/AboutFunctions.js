@@ -109,9 +109,9 @@ describe("About Functions", function() {
 
     // Needs \r\n to pass in Windows
      expect(multiply.toString()).toBe(
-      "function (a, b) {\r\n" + 
-      "      // An internal comment\r\n" + 
-      "      return a * b;\r\n" + 
+      "function (a, b) {\n" + 
+      "      // An internal comment\n" + 
+      "      return a * b;\n" + 
       "    }" );
   });    
 });
