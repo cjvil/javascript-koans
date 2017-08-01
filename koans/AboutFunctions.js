@@ -107,43 +107,11 @@ describe("About Functions", function() {
       return a * b;
     };
 
-    // Passes with \r\n
-    // Checked whitespace and expected/actual output appear identical in error message
+    // Needs \r\n to pass in Windows
      expect(multiply.toString()).toBe(
       "function (a, b) {\r\n" + 
       "      // An internal comment\r\n" + 
       "      return a * b;\r\n" + 
       "    }" );
-
-    // Manually testing equality with \n only
-    var a = multiply.toString();
-    var b = "function (a, b) {\n" + 
-      "      // An internal comment\n" + 
-      "      return a * b;\n" + 
-      "    }";
-
-    console.log("a: " + a);
-    console.log("b: " + b);
-
-    // This logs false in KoansRunner but true when code block copied into new
-    // chrome console
-    console.log("a === b? " + (a === b)); 
-
-    console.log(typeof a); 
-    console.log(typeof b); 
-    console.log(a.length); 
-    console.log(b.length); 
-
-    // mismatch at index 17; ASCII a: 13 ASCII b: 10
-    for(var i = 0; i < b.length; i++) {
-      if (a.charAt(i) !== b.charAt(i)) {
-        console.log( "Mismatch at b index: " + i + ", a: " + a.charAt(i) + " and b: " + b.charAt(i) );
-        console.log( "ASCII a: " + a.charCodeAt(i) + " ASCII b: " + b.charCodeAt(i) );
-        console.log( "ASCII match?: " +  a.charCodeAt(i) === b.charCodeAt(i) );
-        console.log("");
-
-      }
-    }
-
   });    
 });
